@@ -1,0 +1,8 @@
+development:
+  password: 6e5ff8e725fa5bd41814d51b26239f4b
+  access_token: 6e5ff8e725fa5bd41814d51b26239f4b
+  theme_id: "168680196"
+  store: vestment.myshopify.com
+  bucket_size: 40
+  refill_rate: 2
+  timeout: 30s

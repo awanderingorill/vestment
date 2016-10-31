@@ -1,0 +1,56 @@
+{% layout settings.customer_layout %}
+            <div class="bag-container">
+              <a href="/cart">
+                {{ cart.item_count }}
+              </a>
+            </div>
+ 
+            
+            <div class="nav-container">
+                <a href="/" class="logo">
+                    {{ 'vestment-logo.svg' | asset_url | img_tag : "Vestment Logo"  }}
+                </a>
+              {% include "legal-modals" %}
+              {% include "made-modal" %}
+              {% include "about-modal" %}
+              {% include "help-modal" %}
+              {% include "bottom-nav" %}   
+              
+              
+            </div>
+            {% include "menu" %}
+<div class="login-contain">
+  <div id="customer">
+	  <!-- Create Customer -->
+	  <div id="create-customer">
+	    <div class="template_header">
+	      <h2 class="title">Create Account</h2>
+	    </div>
+
+	    {% form 'create_customer' %}
+
+	      <div class="clearfix large_form">
+	        <input type="text" value="" placeholder="First Name" name="customer[first_name]" id="first_name" class="large" size="30" />
+	      </div>
+
+	      <div class="clearfix large_form">
+	        <input type="text" value="" placeholder="Last Name" name="customer[last_name]" id="last_name" class="large" size="30" />
+	      </div>
+
+	      <div class="clearfix large_form">
+	        <input type="email" value="" placeholder="Email Address" name="customer[email]" id="email" class="large" size="30" />
+	      </div>
+
+	      <div class="clearfix large_form">
+	        <input type="password" value="" placeholder="Password" name="customer[password]" id="password" class="large password" size="30" />
+	      </div>
+{{ form.errors | default_errors }}
+	      <div class="action_bottom">
+	        <input class="btn" type="submit" value="Create" />
+	        <span class="note"><a href="/store">Return to Store</a></span>
+	      </div>
+        
+	    {% endform %}
+	  </div><!-- /#create-customer -->
+  </div>
+</div>

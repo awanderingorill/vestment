@@ -1,0 +1,27 @@
+<div class="site-container">
+  
+            <div class="bag-container">
+              <a href="/cart">
+                {{ cart.item_count }}
+              </a>
+            </div>
+  
+            <div class="nav-container">
+                <a href="/" class="logo">
+                    {{ 'vestment-logo.svg' | asset_url | img_tag : "Vestment Logo" }}
+                </a>
+              {% include "legal-modals" %}
+              {% include "made-modal" %}
+              {% include "about-modal" %}
+              {% include "help-modal" %}
+              {% include "bottom-nav" %}
+            </div>
+            {% include "menu" %}
+
+  
+<div class="cart-content">
+  <p class="empty-cart">404 Page Not Found</p>
+  <a href="/store" class="cont-btn empty">Return to Store</a> 
+  </div>
+  
+</div>

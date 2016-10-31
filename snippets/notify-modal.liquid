@@ -1,0 +1,32 @@
+<div class="notify-modal">
+  <div class="notify-contain">
+  <div class="close"></div>
+  {% form 'contact' %}
+    {% if form.posted_successfully? %}
+    <p class="">Thanks! We will notify you when this product becomes available!</p>
+    {% else %}
+    <h1>Notify Me</h1>
+    <h3>Good things come to those who wait. </h3>
+    <div class="notify-me-wrapper" >
+      {% if customer %}
+      <input type="hidden" name="contact[email]" value="{{ customer.email }}" />
+      <input class="btn styled-submit" type="submit" value="Notify Me" />         
+
+      {% else %}
+      <input  type="email" name="contact[email]" placeholder="Email Address" class="notify-email-input styled-input{% if form.errors contains 'email' %} error{% endif %}" value="{{ contact.fields.email }}" />
+      <input  class="notify-submit btn styled-submit" type="submit" value="Notify Me" />         
+	  <p class="notify-errors">Input can not be blank.</p>
+      {% endif %}
+      <input type="hidden" name="contact[body]" value="Please notify me when {{ product.title | escape }} becomes available." />
+        </div>
+    {% endif %}
+    {% if form.errors %}
+    <div class="error feedback">
+      <p>Please provide a valid email address.</p>
+    </div>
+    {% endif %}
+          <p>Our garments are made in limited quantities by small workshops in New York City. We do our best to meet demand but quality cannot be rushed. Hold tight; there are always good things in the works. </p>
+
+  {% endform %}
+</div>
+</div>
