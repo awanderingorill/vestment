@@ -646,33 +646,18 @@ background: url("{{'close-icon-white.png' | asset_url}}") no-repeat center cente
 }
 
 .hero-container {
-  display: table;
+  display: block;
   width: 100%;
-  height: 100%; }
-  .hero-container img {
-    display: inline-block;
-    width: 100%; }
+  height: 85vh; }
   .hero-container .hero {
-    display: table-cell;
+    display: block;
+    background: url("{{'hero.png' | asset_url}}");
+    background-size: cover;
+    background-position: center center;
     text-align: center;
     vertical-align: middle;
   width: 100%;
 height: 100%;}
-  .hero-container .vid-player {
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    overflow: hidden;
-  position:relative;}
-  .hero-container .vid-player iframe {
-    width:150%;
-    height:200%;
-    position:absolute;
-    top:0;
-    left:50%;
-    transform: translate(-50%, -25%);
-    
-  }
 
 .shop-button {
 	position: fixed;
