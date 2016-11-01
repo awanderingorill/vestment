@@ -1,5 +1,33 @@
 
 $(document).ready(function () {
+
+  // "Newest Release" carousel added 11/1/2016
+  $('.newest-release-carousel').slick({
+    centerMode: true,
+    centerPadding: '60px',
+    slidesToShow: 1,
+    // responsive: [
+    // {
+    //   breakpoint: 768,
+    //   settings: {
+    //     arrows: false,
+    //     centerMode: true,
+    //     centerPadding: '40px',
+    //     slidesToShow: 3
+    //   }
+    // },
+    // {
+    //   breakpoint: 480,
+    //   settings: {
+    //     arrows: false,
+    //     centerMode: true,
+    //     centerPadding: '40px',
+    //     slidesToShow: 1
+    //   }
+    // }
+    // ]
+  });
+
   if ($('td.item.customization').length) {
     	$('td.item.customization').find('br').remove();
   }

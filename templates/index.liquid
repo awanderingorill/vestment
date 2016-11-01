@@ -41,7 +41,22 @@
       {% include "help-modal" %}
       {% include "bottom-nav" %}
     </div>
+
     {% include "menu" %}
+
+    <div class="newest-release-container">    
+      <div class="newest-release-carousel">
+        <div class="newest-release-panel">
+          {{ 'new_release.png' | asset_url | img_tag : "Newest Release" }}
+        </div>
+        <div class="newest-release-panel">
+          {{ 'new_release.png' | asset_url | img_tag : "Newest Release" }}
+        </div>
+        <div class="newest-release-panel">
+          {{ 'new_release.png' | asset_url | img_tag : "Newest Release" }}
+        </div>
+      </div>
+    </div>
 
     <div id="_shop" class="shop-container">
       {% for product in collection.products %}
