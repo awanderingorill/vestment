@@ -1,190 +1,187 @@
 
-        
-  
-         <div class="nav-container">
-                <div class="logo white">
-                    {{ 'vestment-logo-white.png' | asset_url | img_tag : "Vestment Logo" }}
-                </div>
 
-            </div>
-            <div class="hero-container">
-                <section class="hero">
-                    <div class="vid-player">
-                        <iframe id="vestvid" src="https://player.vimeo.com/video/153726670?background=1"  webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
-                  </div>
-                </section>
-            </div>
+<div class="nav-container">
+  <div class="logo white">
+    {{ 'vestment-logo-white.png' | asset_url | img_tag : "Vestment Logo" }}
+  </div>
+
+</div>
+<div class="hero-container">
+  <section class="hero">
+    <div class="vid-player">
+      <iframe id="vestvid" src="https://player.vimeo.com/video/153726670?background=1"  webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+    </div>
+  </section>
+</div>
 
 <div class="mute-button"></div>
 
 <a href="/store" class="shop-button main">Shop</a>
 
 {% include "newsletter-form" %}
-           
-  
-  
+
+
+
 {% assign page = pages.robes %}
 {{ page.content }}
 {% assign collection = collections.robes %}
 
 <div class="front-page">
 
-<div class="site-container">
-  
-            <div class="bag-container">
-              <a href="/cart">
-                {{ cart.item_count }}
-              </a>
+  <div class="site-container">
+
+    <div class="bag-container">
+      <a href="/cart">
+        {{ cart.item_count }}
+      </a>
+    </div>
+
+
+
+    <div class="nav-container">
+
+      {% include "legal-modals" %}
+      {% include "made-modal" %}
+      {% include "about-modal" %}
+      {% include "help-modal" %}
+      {% include "bottom-nav" %}
+    </div>
+    {% include "menu" %}
+
+    <div id="_shop" class="shop-container">
+      {% for product in collection.products %}
+      <section class="item-container offset {{product.metafields.c_f.position_x}}">
+
+        <div class="item-stack">
+          <a class="product-link" href="{{ product.url }}"> 
+            <div class="mobile-info load-slow">
+              <p class="item-title">{{ product.title }}</p>
+              <p class="shop-now">Shop Now</p>
             </div>
- 
-  
-  
-            <div class="nav-container">
-              <div class="logo">
-                    {{ 'vestment-logo.svg' | asset_url | img_tag }}
-                </div>
 
-              {% include "legal-modals" %}
-              {% include "made-modal" %}
-              {% include "about-modal" %}
-              {% include "help-modal" %}
-              {% include "bottom-nav" %}
-            </div>
-            {% include "menu" %}
+            <span class="pos4"><img src="{{ product.featured_image | product_img_url: 'master' }}"/></span>
 
-            <div id="_shop" class="shop-container">
-              {% for product in collection.products %}
-                <section class="item-container offset {{product.metafields.c_f.position_x}}">
-                   
-                  <div class="item-stack">
-                    <a class="product-link" href="{{ product.url }}"> 
-                      <div class="mobile-info load-slow">
-                      <p class="item-title">{{ product.title }}</p>
-                        <p class="shop-now">Shop Now</p>
-                      </div>
-                       
-                             <span class="pos4"><img src="{{ product.featured_image | product_img_url: 'master' }}"/></span>
-                        
-                      <span class="label-img">
-                      	<img src="{{ 'vestment-label.jpg' | asset_url }}" alt="Vestment Label"/>
-                      </span>
-                      <span class="diagram-img">
-                        <div class="close"></div>
-                      	<img src="{{ 'vestment-diagram.jpg' | asset_url }}" alt="Vestment Sizing Diagram"/>
-                      </span>
-                      </a>
-                    </div>
-                  
-                    <div class="item-buy">
-                        <p class="item-title">{{ product.title }}</p>
-                        <p class="item-price">{{ product.price | money }}</p>
-                        <div class="select-container">
-                            <form action="/cart/add" method="post" enctype="multipart/form-data">
-                                <select class="select-size {% if product.available %}{% else %}not-avail{% endif %}" name="id" id="vest-select">
-                                    {% for variant in product.variants %}
-                                        {% if variant.available == true %}
-                                            <option data-selectedtext="Size: {{ forloop.index0 }} " value="{{variant.id}}"> {{ variant.option1 }}</option>
-                                        {% else %}
-                                            <option disabled="disabled"> {{ variant.option1 }} - Sold Out</option>
-                                        {% endif %}
-                                    {% endfor %}
-                                </select>
-                                <select class="select-quantity" id="variants" name="quantity">
-                                    {% for i in (1..10) %}
-                            			<option data-selectedtext="Quantity: {{ i }} " value="{{ i }}">{{ i }}</option>
-                                    {% endfor %}
-                                </select>
-                              
-                              
-                                {% if product.available %}
-                                <div class="add-cart next-custom enabled">
-                                  <p>Add to bag</p>
-                                </div>
+            <span class="label-img">
+             <img src="{{ 'vestment-label.jpg' | asset_url }}" alt="Vestment Label"/>
+           </span>
+           <span class="diagram-img">
+            <div class="close"></div>
+            <img src="{{ 'vestment-diagram.jpg' | asset_url }}" alt="Vestment Sizing Diagram"/>
+          </span>
+        </a>
+      </div>
 
-                                {% else %}
-                              <div class="add-cart next-custom ">
-                                  <p>OUT OF STOCK</p>
-                                </div>
-
-                                {% endif %}
-                                
-                              <div class="custom-overlay">
-                              <div class="custom-container">
-                                <div class='close'></div>
-                                <h2>Personalization</h2>
-                                <div class="customize-left-col">
-                                  <p>Please enter your name or, <br>if the garment is a gift, enter<br> 
-the name of the recipient.</p>
-                                  <p>Each garment is made to order<br> and crafted by artisans in <br>
-Brooklyn. This reduces excess<br> and ensures the highest quality.<br> Please allow 2 weeks for <br>
-production and shipment.</p>
-                                </div>
-                                <div class="customize-right-col">
-                                	{{ 'customize-img.jpg' | asset_url | img_tag : "Custom Vestment Logo" }}
-                                </div>
-                                <div class="clear"></div>
-                                <div class="customize-enter-name">
-                                  <h3>{{ product.title }}</h3>
-                                  <input  type="text" id="monogram" placeholder="Personalized First Name" name="properties[First Name]">
-                                  <input  type="text" id="monogram" placeholder="Personalized Last Name" name="properties[Last Name]">
-                                </div>
-                               <div class="btn-container">
-                                <button class="add-cart" type="submit" id="add" name="add">
-                                  
-                                  <p>Add to bag</p>
-                                </button>
-                                <div class="cont-btn">
-                                  <p> Continue Shopping</p>
-                                </div>
-                                <div class="clear"></div>
-                              </div>
-                          </div>
-                              </div>
-                              
-                            </form>
-                        </div>
-                        <div class="item-info-container">
-                            <ul>
-                              <li data-description="design" class="active"><a href="#">Design</a></li> 
-                              <li data-description="fabric"><a href="#">Fabric</a></li>
-                                <li data-description="size"><a href="#">Size & Fit</a></li>
-                            </ul>
-                            <div class="info-description-container">
-                              	<div class="fabric-description ">
-                                  {{ product.description }}
-                                </div>
-                                <div class="design-description description-on">
-                                  <p>
-                                    {% if product.metafields.c_f.design_description %}
-                                        {{ product.metafields.c_f.design_description }}
-                                    {% endif %} 
-                                  </p>
-                                  
-                                </div>
-                                <div class="size-description">
-                                  <p>
-                                    {% if product.metafields.c_f.sizing_description %}
-                                        {{ product.metafields.c_f.sizing_description }}
-                                    {% endif %}
-                                  </p>
-                                  
-                                </div>
-                            </div>
-                        </div>
-                        <div class="extra-info-container">
-                            <p>Free Shipping</p>
-                           <!-- <a href="#">Share</a> -->
-                        </div>
-                    </div>
-                </section>
+      <div class="item-buy">
+        <p class="item-title">{{ product.title }}</p>
+        <p class="item-price">{{ product.price | money }}</p>
+        <div class="select-container">
+          <form action="/cart/add" method="post" enctype="multipart/form-data">
+            <select class="select-size {% if product.available %}{% else %}not-avail{% endif %}" name="id" id="vest-select">
+              {% for variant in product.variants %}
+              {% if variant.available == true %}
+              <option data-selectedtext="Size: {{ forloop.index0 }} " value="{{variant.id}}"> {{ variant.option1 }}</option>
               {% else %}
-                <p>You have no products in your Robe collection. <a href="http://www.shopify.com/admin/custom_collections">Add some.</a></p>
+              <option disabled="disabled"> {{ variant.option1 }} - Sold Out</option>
+              {% endif %}
               {% endfor %}
+            </select>
+            <select class="select-quantity" id="variants" name="quantity">
+              {% for i in (1..10) %}
+              <option data-selectedtext="Quantity: {{ i }} " value="{{ i }}">{{ i }}</option>
+              {% endfor %}
+            </select>
+
+
+            {% if product.available %}
+            <div class="add-cart next-custom enabled">
+              <p>Add to bag</p>
+            </div>
+
+            {% else %}
+            <div class="add-cart next-custom ">
+              <p>OUT OF STOCK</p>
+            </div>
+
+            {% endif %}
+
+            <div class="custom-overlay">
+              <div class="custom-container">
+                <div class='close'></div>
+                <h2>Personalization</h2>
+                <div class="customize-left-col">
+                  <p>Please enter your name or, <br>if the garment is a gift, enter<br> 
+                    the name of the recipient.</p>
+                    <p>Each garment is made to order<br> and crafted by artisans in <br>
+                      Brooklyn. This reduces excess<br> and ensures the highest quality.<br> Please allow 2 weeks for <br>
+                      production and shipment.</p>
+                    </div>
+                    <div class="customize-right-col">
+                     {{ 'customize-img.jpg' | asset_url | img_tag : "Custom Vestment Logo" }}
+                   </div>
+                   <div class="clear"></div>
+                   <div class="customize-enter-name">
+                    <h3>{{ product.title }}</h3>
+                    <input  type="text" id="monogram" placeholder="Personalized First Name" name="properties[First Name]">
+                    <input  type="text" id="monogram" placeholder="Personalized Last Name" name="properties[Last Name]">
+                  </div>
+                  <div class="btn-container">
+                    <button class="add-cart" type="submit" id="add" name="add">
+
+                      <p>Add to bag</p>
+                    </button>
+                    <div class="cont-btn">
+                      <p> Continue Shopping</p>
+                    </div>
+                    <div class="clear"></div>
+                  </div>
+                </div>
+              </div>
+
+            </form>
+          </div>
+          <div class="item-info-container">
+            <ul>
+              <li data-description="design" class="active"><a href="#">Design</a></li> 
+              <li data-description="fabric"><a href="#">Fabric</a></li>
+              <li data-description="size"><a href="#">Size & Fit</a></li>
+            </ul>
+            <div class="info-description-container">
+             <div class="fabric-description ">
+              {{ product.description }}
+            </div>
+            <div class="design-description description-on">
+              <p>
+                {% if product.metafields.c_f.design_description %}
+                {{ product.metafields.c_f.design_description }}
+                {% endif %} 
+              </p>
 
             </div>
-  
-  
+            <div class="size-description">
+              <p>
+                {% if product.metafields.c_f.sizing_description %}
+                {{ product.metafields.c_f.sizing_description }}
+                {% endif %}
+              </p>
+
+            </div>
+          </div>
         </div>
+        <div class="extra-info-container">
+          <p>Free Shipping</p>
+          <!-- <a href="#">Share</a> -->
+        </div>
+      </div>
+    </section>
+    {% else %}
+    <p>You have no products in your Robe collection. <a href="http://www.shopify.com/admin/custom_collections">Add some.</a></p>
+    {% endfor %}
+
+  </div>
   
+  
+</div>
+
 </div>
