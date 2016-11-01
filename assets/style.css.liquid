@@ -648,7 +648,7 @@ background: url("{{'close-icon-white.png' | asset_url}}") no-repeat center cente
 .hero-container {
   display: block;
   width: 100%;
-  height: 85vh; }
+  height: 90vh; }
   .hero-container .hero {
     display: block;
     background: url("{{'hero.png' | asset_url}}");
@@ -660,12 +660,18 @@ background: url("{{'close-icon-white.png' | asset_url}}") no-repeat center cente
 height: 100%;}
 
 .newest-release-container {
-  height: 60vh;
+  height: 85vh;
   overflow: hidden;
 }
 
 .newest-release-panel:focus {
   outline: none;
+}
+
+.newest-release-panel img
+{
+  object-fit: contain;
+  height: 85vh;
 }
 
 .bag-container {
