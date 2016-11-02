@@ -16,11 +16,31 @@
 {{ page.content }}
 {% assign collection = collections.robes %}
 
+<!-- {% for collection in collections %}
+  <h1>{{ collection.title }} — {{ collection.handle }}</h1>
+  <ul>
+  {% for product in collection.products %}
+  <li>
+    {{ product.title }}
+  </li>
+  {% endfor %}
+  </ul>
+{% endfor %} -->
+
+<!-- {% for product in collections.new-in-stock.products %}
+  hello
+  {{ product.title }}
+{% endfor %} -->
+
+<!-- for collection in collections -->
+<!-- modal -->
+<!-- product list -->
+
 <div class="modal-gallery shop-page">
   <div class="close"></div>
   <h2 class="product-zoom-name"></h2>
   <div class="gallery-container">
-    
+
     {% for product in collection.products %}
     <ul class="zoom-slide{{ forloop.index }} {{product.metafields.c_f.zoom_namespace}}">
       {% for image in product.images %} 
