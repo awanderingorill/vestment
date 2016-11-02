@@ -644,13 +644,48 @@ background: url("{{'close-icon-white.png' | asset_url}}") no-repeat center cente
 height: 100%;}
 
 .newest-release-container {
-  height: 85vh;
-}
-
-.newest-release-carousel
-{
+  height: 110vh;
+  padding: 50px 0;
+  background-color: #FCF7F5;
   overflow: hidden;
 }
+
+.newest-release-carousel-dots li
+{
+  display: inline-block;
+}
+
+.newest-release-carousel-dots li button
+{
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.newest-release-carousel-dots li:after
+{
+  content: '';
+  display: block;
+  height: 10px;
+  width: 25px;
+  border-top: 2px solid #E7C2B1;
+  margin-right: 5px;
+}
+
+.newest-release-carousel-dots li[aria-hidden="false"]:after
+{
+  content: '';
+  display: block;
+  height: 10px;
+  width: 25px;
+  border-top: 2px solid #000000;
+  margin-right: 5px;
+}
+
+/*.newest-release-carousel
+{
+  overflow: hidden;
+  height: 80%;
+}*/
 
 .newest-release-panel:focus {
   outline: none;
@@ -658,8 +693,9 @@ height: 100%;}
 
 .newest-release-panel img
 {
-  /*object-fit: contain;*/
-  height: 600px;
+  height: 80vh;
+  object-fit: contain;
+  object-position: 50% 50%;
   margin-right: 50px;
 }
 
