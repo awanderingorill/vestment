@@ -644,7 +644,7 @@ background: url("{{'close-icon-white.png' | asset_url}}") no-repeat center cente
 height: 100%;}
 
 .newest-release-container {
-  height: 110vh;
+  /*height: 110vh;*/
   padding: 50px 0;
   background-color: #FCF7F5;
   overflow: hidden;
@@ -674,6 +674,7 @@ height: 100%;}
 
 .newest-release-carousel-dots li button {
   visibility: hidden;
+  cursor: pointer;
 }
 
 .newest-release-carousel-dots li:after {
@@ -682,7 +683,7 @@ height: 100%;}
   height: 10px;
   width: 25px;
   border-top: 2px solid #E7C2B1;
-  margin-right: 5px;
+  margin-right: 15px;
 }
 
 .newest-release-carousel-dots li[aria-hidden="false"]:after {
@@ -691,7 +692,30 @@ height: 100%;}
   height: 10px;
   width: 25px;
   border-top: 2px solid #000000;
-  margin-right: 5px;
+  margin-right: 15px;
+}
+
+.newest-release-copy-and-button {
+  text-align: center;
+  cursor: pointer;
+}
+
+.newest-release-header {
+  font-size: 24px;
+  margin: 15px;
+}
+
+.newest-release-subhead, .newest-release-button {
+  font-size: 13px;
+  margin-top: 30px;
+}
+
+.newest-release-button {
+  display: inline-block;
+  color: #E7C2B1;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  border: 1.25px solid #E7C2B1;
 }
 
 .bag-container {
