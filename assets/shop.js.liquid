@@ -4,8 +4,12 @@ $(document).ready(function () {
   // "Newest Release" carousel added 11/1/2016
   $('.newest-release-carousel').slick({
     centerMode: true,
-    centerPadding: '150px',
+    infinite: true,
+    centerPadding: '10%',
     slidesToShow: 1,
+    arrows: false,
+    dots: true,
+    variableWidth: true
     // responsive: [
     // {
     //   breakpoint: 768,
