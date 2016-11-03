@@ -1,0 +1,26 @@
+<!-- {% for product in collection %} -->
+
+<div class="newest-release-container">    
+  <div class="newest-release-carousel">
+    <!-- {% for image in product.images %} -->
+    <div class="newest-release-panel">
+      {{ 'newest-release.png' | asset_url | img_tag : "Newest Release" }}
+    </div>
+    <!-- {% endfor %} -->
+  </div>
+  <div class="newest-release-copy-and-button">
+    <p class="newest-release-header">
+      GIMME SHELTER
+    </p>
+    <p class="newest-release-subhead">
+      Our Tabor Scarf will cover you in the comfort and warmth
+      <br>
+      of eight feet's worth of wool blend.
+    </p>
+    <div class="newest-release-button">
+      Shop our newest release
+    </div>
+  </div>
+</div>
+
+<!-- {% endfor %} -->
