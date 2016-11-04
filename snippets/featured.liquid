@@ -1,12 +1,10 @@
-<!-- {% for product in collection %} -->
-
 <div class="newest-release-container">    
   <div class="newest-release-carousel">
-    <!-- {% for image in product.images %} -->
+    {% for image in product.images %}
     <div class="newest-release-panel">
-      {{ 'newest-release.png' | asset_url | img_tag : "Newest Release" }}
+      {{ image | img_url : "original" | img_tag : "Newest Release" }}
     </div>
-    <!-- {% endfor %} -->
+    {% endfor %}
   </div>
   <div class="newest-release-copy-and-button">
     <p class="newest-release-header">
@@ -22,5 +20,3 @@
     </div>
   </div>
 </div>
-
-<!-- {% endfor %} -->
