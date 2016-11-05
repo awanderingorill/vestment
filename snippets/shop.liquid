@@ -1,4 +1,7 @@
-<div id="_shop" class="shop-container">
+<div id="_shop" class="shop-container shop-{{ collection.handle }}">
+  <h1>
+    {{ collection.title }}
+  </h1>
   {% for product in collection.products %}
   <section class="item-container offset {{product.metafields.c_f.position_x}}">
 
