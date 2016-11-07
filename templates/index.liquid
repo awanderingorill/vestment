@@ -39,13 +39,14 @@
         L210.3,32.9z"/>
       </g>
     </svg>
+
   </div>
+
   <div class="mobile-logo">
     {{ 'vestment-logo.svg' | asset_url | img_tag }}
   </div>
-</div>
 
-</div>
+  </div>
 <div class="hero-container">
   <section class="hero">
     <!-- Hero goes here as background image -->
@@ -64,14 +65,14 @@
 
       {% for collection in collections %}
 
-      {% for product in collection.products %}
-      <ul class="zoom-slide{{ forloop.index }} {{product.metafields.c_f.zoom_namespace}}">
-        {% for image in product.images %} 
-        <li> <img src="{{ image.src | product_img_url: 'master' }}" alt="{{ image.alt | escape }}" /></li>
-        {% endfor %}
+        {% for product in collection.products %}
+        <ul class="zoom-slide{{ forloop.index }} {{product.metafields.c_f.zoom_namespace}}">
+          {% for image in product.images %} 
+          <li> <img src="{{ image.src | product_img_url: 'master' }}" alt="{{ image.alt | escape }}" /></li>
+          {% endfor %}
 
-      </ul>
-      {% endfor %}
+        </ul>
+        {% endfor %}
 
       {% endfor %}
     </div>
