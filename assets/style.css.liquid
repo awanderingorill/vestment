@@ -411,6 +411,23 @@ body {
   top:25px;
 }
 
+.mobile-logo {
+  display: none;
+  height: 40px;
+}
+
+.mobile-logo img {
+  width: 150px;
+}
+
+@media (max-width: 375px) {
+  .mobile-logo {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+}
+
 .vestment-logo-letter {
   fill: #FFFFFF;
   transition: all .5s ease-in-out;
@@ -650,6 +667,13 @@ height: 100%;}
   overflow: hidden;
 }
 
+@media (max-width: 375px) {
+  .featured-container {
+    padding: 0;
+    padding-bottom: 30px;
+  }
+}
+
 .featured-panel:focus {
   outline: none;
 }
@@ -662,6 +686,14 @@ height: 100%;}
   margin-right: 50px;
   cursor: pointer;
 }
+
+@media (max-width: 375px) {
+  .featured-panel img {
+    height: auto;
+    width: 100vw;
+    margin: 0;
+}
+
 
 .featured-carousel-dots {
   padding: 0px 10%;
@@ -698,6 +730,12 @@ height: 100%;}
 
 .featured-copy-and-button {
   text-align: center;
+}
+
+@media (max-width: 375px) {
+  .featured-copy-and-button {
+    padding: 0 20px;
+  }
 }
 
 .featured-header {
