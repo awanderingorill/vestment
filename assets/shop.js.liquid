@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
 
-  // "Newest Release" carousel added 11/1/2016
+  // "Featured" carousel config (added 11/1/2016)
   $('.featured-carousel').slick({
     centerMode: true,
     centerPadding: '10%',
@@ -10,27 +10,29 @@ $(document).ready(function () {
     arrows: false,
     variableWidth: true,
     dotsClass: 'featured-carousel-dots'
-    // responsive: [
-    // {
-    //   breakpoint: 768,
-    //   settings: {
-    //     arrows: false,
-    //     centerMode: true,
-    //     centerPadding: '40px',
-    //     slidesToShow: 3
-    //   }
-    // },
-    // {
-    //   breakpoint: 480,
-    //   settings: {
-    //     arrows: false,
-    //     centerMode: true,
-    //     centerPadding: '40px',
-    //     slidesToShow: 1
-    //   }
-    // }
-    // ]
   });
+
+  var heroHeight = $('.hero-container').height();
+  var logoTag = $('.logo').children('svg');
+
+
+  var checkLogoAttributes = function()
+  {
+    var e = $(this).scrollTop();
+    if ( e > heroHeight - 50 ) {
+      $('.vestment-logo-letter').css('fill', '#231F20');
+      $('.logo').css('width', '200px');
+    } else {
+      $('.vestment-logo-letter').css('fill', '#FFFFFF');
+      $('.logo').css('width', '335px');
+    }
+  }
+  
+  checkLogoAttributes();
+
+  $(window).scroll(function() {
+    checkLogoAttributes();
+  })
 
   if ($('td.item.customization').length) {
     	$('td.item.customization').find('br').remove();
