@@ -1,7 +1,7 @@
 <div class="featured-container">    
   <div class="featured-carousel">
     {% for image in product.images %}
-    <a class="featured-panel" href="{{ product.url }}">
+    <a class="featured-panel" href="{{ product.url }}?view=featured">
       {{ image | img_url : "original" | img_tag : "Newest Release" }}
     </a>
     {% endfor %}
@@ -13,7 +13,7 @@
     <p class="featured-subhead">
       {{ product.metafields.c_f.featured_subhead }}
     </p>
-    <a class="featured-button" href="{{ product.url }}" title="{{ product.title }}">
+    <a class="featured-button" href="{{ product.url }}?view=featured" title="{{ product.title }}">
       Shop our newest release
     </a>
   </div>
