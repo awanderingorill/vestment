@@ -1,9 +1,9 @@
 <div class="featured-container">    
   <div class="featured-carousel">
     {% for image in product.images %}
-    <div class="featured-panel">
+    <a class="featured-panel" href="{{ product.url }}">
       {{ image | img_url : "original" | img_tag : "Newest Release" }}
-    </div>
+    </a>
     {% endfor %}
   </div>
   <div class="featured-copy-and-button">
@@ -13,8 +13,8 @@
     <p class="featured-subhead">
       {{ product.metafields.c_f.featured_subhead }}
     </p>
-    <div class="featured-button">
+    <a class="featured-button" href="{{ product.url }}" title="{{ product.title }}">
       Shop our newest release
-    </div>
+    </a>
   </div>
 </div>
