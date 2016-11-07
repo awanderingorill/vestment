@@ -1,5 +1,7 @@
 {% if collection.products.length %}
-  <div id="_shop" class="shop-container shop-{{ collection.handle }}">
+
+<div class="shop-container-wrapper shop-{{ collection.handle }}">
+  <div id="_shop" class="shop-container">
     <h1>
       {{ collection.title }}
     </h1>
@@ -134,4 +136,5 @@
 
       </div>
     </div>
+  </div>
   {% endif %}
