@@ -12,8 +12,8 @@
 
 {% include "newsletter-form" %}
 
-{% assign page = pages.robes %}
-{{ page.content }}
+<!-- {% assign page = pages.robes %}
+{{ page.content }} -->
 
   <div class="modal-gallery shop-page">
     <div class="close"></div>
@@ -30,7 +30,7 @@
 
         </ul>
         {% endfor %}
-        
+
       {% endfor %}
     </div>
   </div>
@@ -67,7 +67,7 @@
       {%  include "shop" %}
 
       <!-- Previous Season -->
-      {% assign collection = collections.robes %}
+      {% assign collection = collections.previous-collection %}
       {%  include "shop" %}
 
       <!-- Sale -->
