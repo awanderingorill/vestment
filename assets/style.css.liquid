@@ -1828,11 +1828,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
   height: 100%;
 }
 
-.featured-product-wrapper {
-  height: auto;
-  background-color: #FCF7F5 !important;
-}
-
 .product-wrapper.no-scroll {
   overflow:hidden;
   position: fixed;
@@ -1854,6 +1849,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
     margin: 0 auto;
   }
 
+  .featured-product-wrapper {
+    background-color: #FCF7F5 !important;
+  }
+
+  @media (min-width: 1000px) {
+  .featured-product-wrapper {
+    height: auto;
+    background-color: #FCF7F5 !important;
+  }
   .featured-product-container {
     width:980px;
     margin: 0 auto;
@@ -1867,13 +1871,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
     /* bottom: -30px; */
     /* width: inherit; */
   }
-  
-  .product-container .item-buy {
-    display:block;
-        padding: 0 0 55px 0;
-    margin-top: -40px;
-  }
-
   .featured-item-stack {
     width: 50% !important;
     left: 15px;
@@ -1889,6 +1886,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
     margin: 0 !important;
     padding-left: 140px !important;
   }
+}
+
+  
+  .product-container .item-buy {
+    display:block;
+        padding: 0 0 55px 0;
+    margin-top: -40px;
+  }
+
 
   .product-container ul.vest-slide {
   }
