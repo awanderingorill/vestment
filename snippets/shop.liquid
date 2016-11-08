@@ -32,7 +32,10 @@
       <div class="item-buy">
         {% include "notify-modal" %}
         <a class="title-link" href="{{ product.url }}"><p class="item-title">{{ product.title }}</p></a>
-        <p class="item-price">{{ product.price | money }}</p>
+        <p class="item-price">
+          <span>{{ product.compare_at_price | money}}</span>
+          {{ product.price | money }}
+        </p>
         <div class="select-container">
           <form action="/cart/add" method="post" enctype="multipart/form-data">
             <select class="select-size {% if product.available %}{% else %}not-avail{% endif %}" name="id" id="vest-select">
