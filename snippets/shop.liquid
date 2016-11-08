@@ -33,7 +33,11 @@
         {% include "notify-modal" %}
         <a class="title-link" href="{{ product.url }}"><p class="item-title">{{ product.title }}</p></a>
         <p class="item-price">
-          <span>{{ product.compare_at_price | money}}</span>
+          {% if product.compare_at_price %}
+          <span>
+            {{ product.compare_at_price | money}}
+          </span>
+          {% endif %}
           {{ product.price | money }}
         </p>
         <div class="select-container">
