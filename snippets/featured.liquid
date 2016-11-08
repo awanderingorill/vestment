@@ -1,10 +1,19 @@
 <div class="featured-container">    
   <div class="featured-carousel">
-    {% for image in product.images %}
+<!--     {% for image in product.images %}
     <a class="featured-panel" href="{{ product.url }}?view=featured">
       {{ image | img_url : "original" | img_tag : "Newest Release" }}
     </a>
-    {% endfor %}
+    {% endfor %} -->
+    <a class="featured-panel" href="{{ product.url }}?view=featured">
+      {{ 'vik-robe1.jpg' | asset_url | img_tag }}
+    </a>
+    <a class="featured-panel" href="{{ product.url }}?view=featured">
+      {{ 'vik-robe2.jpg' | asset_url | img_tag }}
+    </a>
+    <a class="featured-panel" href="{{ product.url }}?view=featured">
+      {{ 'vik-robe3.jpg' | asset_url | img_tag }}
+    </a>
   </div>
   <div class="featured-copy-and-button">
     <p class="featured-header">
