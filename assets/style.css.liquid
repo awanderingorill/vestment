@@ -1225,7 +1225,7 @@ p.empty-cart {
 }
 
 .cont-btn, .chk-out-btn {
-  background: #fff;
+  background: transparent;
   color: #000;
   padding: 16px;
   font-size: 13px;
@@ -1237,7 +1237,8 @@ p.empty-cart {
 }
 
 .chk-out-btn {
-  padding: 16px 0;
+  text-decoration: none;
+  width: 85%;
 }
 
 
@@ -1558,13 +1559,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 	color: #ccc;
 }
 
-
 .bx-wrapper .bx-viewport {
    -moz-box-shadow: none;
     -webkit-box-shadow: none;
-	box-shadow:none;
-  	border: none;
-  	background: transparent;
+  box-shadow:none;
+    border: none;
+    background: transparent;
+}
+
+.template-index .bx-wrapper .bx-viewport {
+    left: 0 !important;
 }
 
 .diagram-img-mobile {

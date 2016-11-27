@@ -1,5 +1,16 @@
-
 $(document).ready(function () {
+
+  // Mobile info text color edit (added 11/8/2016)
+  // var foomanchu = function(r) {console.log(r.product)}
+  // $.ajax({
+  //   url: 'https://www.vestment.shopify.com/products/pinstripe.json',
+  //   dataType: 'jsonp',
+  //   crossDomain: true,
+  //   jsonp: false,
+  //   jsonpCallback: 'foomanchu'
+  // })
+
+  $.getJSON('https://www.vestment.shopify.com/products/pinstripe.json?callback=?').done(function(x){console.log(x.product)})
 
   // "Featured" carousel config (added 11/1/2016)
   $('.featured-carousel').slick({
@@ -322,14 +333,17 @@ $(document).ready(function () {
      });
   
   $('.add-cart.next-custom.enabled').click(function(e) {
-    e.preventDefault();
-    $(this).next('.custom-overlay').fadeIn();
-    $('body').addClass('no-scroll');
-    if ( $('.product-wrapper').length && $('.mobile-check').css('float') == 'none') {
-    	$('.product-wrapper').addClass('no-scroll');
+    if($(this).hasClass('tabor-scarf')) {
+      // Quick fix to remove personalization modal from Tabor Scarf; should be updated to listen for a variable set within Shopify CMS
+      $(this).parents('.select-container').siblings('.extra-info-container').css('position', 'relative').css('margin-top', '20px');
+    } else {
+      e.preventDefault();
+      $(this).next('.custom-overlay').fadeIn();
+      $('body').addClass('no-scroll');
+      if ( $('.product-wrapper').length && $('.mobile-check').css('float') == 'none') {
+      	$('.product-wrapper').addClass('no-scroll');
+      }
     }
-
-    
   });
   
   $('.custom-container .close, .custom-container .cont-btn').click(function () {
@@ -539,7 +553,7 @@ Shopify.AjaxifyCart = (function($) {
             // Re-enable add to cart button.
             $addToCartBtn.addClass('inverted');
             _setText($addToCartBtn, _config.addedToCartBtnLabel);
-            _showFeedback('success','<a href="/cart"><div class="chk-out-btn"><p>Checkout</p></div></a>',$addToCartForm);
+            _showFeedback('success','<a href="/cart" class="chk-out-btn">Checkout</a>',$addToCartForm);
             window.setTimeout(function(){
               $addToCartBtn.prop('disabled', false).removeClass('disabled').removeClass('inverted');
               _setText($addToCartBtn,_config.addToCartBtnLabel);

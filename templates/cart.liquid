@@ -68,7 +68,7 @@
             <div>
                 <input class="button update-btn" type="submit" id="update-cart" name="update" value="Update"  />
                 <input class="button checkout-btn" type="submit" name="checkout" value="Checkout" />
-          	<a href="/store" class="cont-btn">Continue Shopping</a>  
+          	<a href="/" class="cont-btn">Continue Shopping</a>  
           </div>
           
         </div>
@@ -83,7 +83,15 @@
       <table>
         <tr id="cart-item-{{item.variant.id}}" class="cart-item">
           <td class=" "><p>Item</p><p>{{ item.product.title }}</p></td>
-          <td class=" "><p>Size</p><p>{{ item.variant.title }}</p></td>
+          <td class=" "><p>Size</p>
+            {% if item.product.title != 'Tabor Scarf' %}
+            <p>
+              {{ item.variant.title }}
+            </p>
+            {% else %}
+              <p></p>
+            {% endif %}
+          </td>
             <td class=" "><p>Price</p><p>{{ item.price | money }}</p></td>
           <td class=" "><a href="/cart/change?line={{ forloop.index }}&quantity=0">Remove</a></td>
             
@@ -132,7 +140,7 @@
   </div>
 {% else %}
 <p class="empty-cart">Your cart is currently empty!</p>
-  <a href="/store" class="cont-btn empty">Return to Store</a> 
+  <a href="/" class="cont-btn empty">Return to Store</a> 
 {% endif %}
 </div>
 </div>
