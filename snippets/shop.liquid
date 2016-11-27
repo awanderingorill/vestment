@@ -47,7 +47,7 @@
             <select class="select-size {% if product.available %}{% else %}not-avail{% endif %}" name="id" id="vest-select">
               {% for variant in product.variants %}
               {% if variant.available == true %}
-              <option data-selectedtext="{%if variant.option1 == 'One Size'%} One Size {%else%} Size: {{ variant.option1 }} {%endif%}" value="{{variant.id}}"> {{ variant.option1 }}</option>
+              <option data-selectedtext="{%if variant.option1 != 'One Size'%} Size:{%endif%} {{ variant.option1 }}" value="{{variant.id}}"> {{ variant.option1 }}</option>
               {% else %}
               <option disabled="disabled"> {{ variant.option1 }} - Sold Out</option>
               {% endif %}

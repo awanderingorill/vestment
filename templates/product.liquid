@@ -50,19 +50,13 @@
     <div class="select-container">
       <form action="/cart/add" method="post" enctype="multipart/form-data">
         <select class="select-size {% if product.available %}{% else %}not-avail{% endif %}" name="id" id="vest-select">
-          <!-- {% if product.handle == 'tabor-scarf' %}
-          {% for variant in product.variants %}
-          <option data-selectedtext="One Size" value="{{variant.id}}"> One Size</option>
-          {% endfor %}
-          {% else %} -->
           {% for variant in product.variants %}
           {% if variant.available == true %}
-          <option data-selectedtext="Size: {{ forloop.index0 }} " value="{{variant.id}}"> {{ variant.option1 }}</option>
+         <option data-selectedtext="{%if variant.option1 != 'One Size'%} Size:{%endif%} {{ variant.option1 }}" value="{{variant.id}}"> {{ variant.option1 }}</option>
           {% else %}
           <option disabled="disabled"> {{ variant.option1 }} - Sold Out</option>
           {% endif %}
           {% endfor %}
-          <!-- {% endif %} -->
         </select>
         <select class="select-quantity" id="variants" name="quantity">
           {% for i in (1..10) %}
